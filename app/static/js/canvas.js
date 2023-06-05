@@ -8,8 +8,16 @@ var create_postit = function(e) {
   let coords = get_mouse_pos(e);
   console.log(coords);
   ctx.fillStyle = "rgb(255, 255, 255)";
-  ctx.fillRect(coords[0], coords[1], 10, 10);
+  ctx.fillRect(coords[0], coords[1], 200, 200);
+  ctx.fillStyle = "rgb(0,0,0)";
+  ctx.font = "20px webdings" 
+  ctx.fillText("lkajflkdsjlk", coords[0], coords[1]);
+  //save data
 };
+
+var create_drawing = function(e) {
+  // To be figured out later
+}
 
 function get_mouse_pos (e) {
   var rect_pos = canvas.getBoundingClientRect();
