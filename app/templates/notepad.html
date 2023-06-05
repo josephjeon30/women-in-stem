@@ -13,33 +13,37 @@
     </head>
 
     <body>
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg sticky-top pl-3 bg-light">
             <div class="container-fluid">
             <a class="navbar-brand" href="/"> WOMEN IN STEM </a>
-          
+
             <div class="collapse navbar-collapse">
               <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="/user"> User </a>
-                </li>  
+                </li>
             </div>
                 </ul>
-            
+
             <ul class="navbar-nav d-flex justify-content-end flex-wrap ms-md-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/logout"> Logout</a>
                 </li>
             </ul>
             </div>
-        </nav>    
+        </nav>
 
         <div class="body p-4">
+            <!-- Ignoring... -->
             <p> notepad core</p>
             {{selected}}
+
+            <canvas id="notepad"> </canvas>
         </div>
-        
 
 
+        <script src="../static/js/canvas.js"></script>
     </body>
 
 </html>
