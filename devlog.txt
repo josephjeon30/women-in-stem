@@ -34,4 +34,5 @@ aprilL -- 2023-06-04 22:46
 --------------------------------------------------------------
 -created navbar with proper links
 -started linking notepads to the user page  
+-made status respond accordingly for login when information is wrong
 ==============================================================
