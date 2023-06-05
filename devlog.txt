@@ -29,3 +29,9 @@ aprilL -- 2023-06-04 21:52
 -created login/register page
 -user can navigate freely to login/register and home_page 
 ==============================================================
+
+aprilL -- 2023-06-04 22:46
+--------------------------------------------------------------
+-created navbar with proper links
+-started linking notepads to the user page  
+==============================================================
