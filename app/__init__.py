@@ -56,6 +56,7 @@ def user():
 
     if(request.method == "POST"):
         selected_notepad = request.form.get("notepad")
+        print(selected_notepad)
         return redirect(url_for("notepad", selected=selected_notepad))
 
     return render_template("user.html",user=session_user)
@@ -65,8 +66,10 @@ def notepad():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
     session_user = F"{get_username(session['ID'])}"
+    
     #select which notepad
-    return render_template("notepad.html",user=session_user,selected="didn't select notepad... :(")
+    selected_notepad=request.args.get('selected')
+    return render_template("notepad.html",user=session_user, selected=selected_notepad)
 
 if __name__ == "__main__":
     app.debug = True
