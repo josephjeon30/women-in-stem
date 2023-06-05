@@ -7,11 +7,9 @@ c = db.cursor()
 c.executescript("""
     create TABLE if NOT EXISTS user(u_id int primary key, username varchar(20), password varchar(30));
     create TABLE if NOT EXISTS notepads(u_id int primary key, user_id int, name text);
-    create TABLE if NOT EXISTS test_notepad(u_id int primary key, user_id int, type text, data text, xcord float, ycord float)
+    create TABLE if NOT EXISTS test_notepad(u_id int primary key, name text, user_id int, type text, data text, xcord float, ycord float)
 """)
 c.close()
-
-current = " "
 
 #note: names of tables must start with a letter, so the table of each notepad will be named after the the id with "a" in the front 
 
@@ -45,7 +43,7 @@ def register_new_user(username, password):
     if (max_id[0] != None):
         new_id = max_id[0] + 1
     else:
-        new_id = 0
+        new_id = 1
     c.execute("insert into user values(? ,?, ?)", (new_id, username, password,))
     db.commit()
     c.close()
@@ -60,3 +58,31 @@ def account_match(username, password):
         return u_id[0]
     else:
         return None
+
+def get_notepads(user_id):
+    c = db.cursor()
+    c.execute("select distinct name from notepads where user_id = ?", (user_id,))
+    result = c.fetchone()
+    c.close()
+    return result
+
+def create_notepad(user_id, name):
+    c = db.cursor()
+    c.execute("SELECT MAX(u_id) FROM notepads")
+    max_id = c.fetchone()
+    if (max_id[0] != None):
+        new_id = max_id[0] + 1
+    else:
+        new_id = 1
+    c.execute("insert into notepads values(?,?,?)", (new_id,user_id,name))
+    notepad_id = "a" + str(new_id)
+    c.execute("create TABLE if NOT EXISTS " + notepad_id + "(u_id int primary key, name text, user_id int, type text, data text, xcord float, ycord float)")
+    db.commit()
+    c.close()
+
+#def new_data(notepad_id, user_id, type, data, xcord, ycord)
+
+#register_new_user("akitss", "akitiss")
+#create_notepad(1, "jing a ling")
+#create_notepad(1, "henry henry henry")
+print(get_notepads(1))

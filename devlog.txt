@@ -36,3 +36,9 @@ aprilL -- 2023-06-04 22:46
 -started linking notepads to the user page  
 -made status respond accordingly for login when information is wrong
 ==============================================================
+
+aprilL & jingF-- 2023-06-05 09:28
+--------------------------------------------------------------
+-worked on db 
+-can create unique notepads
+==============================================================
