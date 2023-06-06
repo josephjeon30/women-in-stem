@@ -12,7 +12,7 @@ var create_postit = function(e) {
   ctx.fillStyle = "rgb(0,0,0)";
   ctx.font = "20px webdings"
   ctx.fillText("lkajflkdsjlk", coords[0], coords[1]);
-  send_data();
+  send_data("dhfk");
 };
 
 // var create_drawing = function(e) {
@@ -29,14 +29,12 @@ function get_mouse_pos (e) {
 
 canvas.addEventListener("click", create_postit);
 
-function send_data () {
-
+function send_data (data) {
   jQuery.ajax({
-    url: '/data_test',
+    url: '/process_sent_data',
     type: 'POST',
     data: {
-      test: "yayay!"
+      data: data
     }
   });
-
 }
