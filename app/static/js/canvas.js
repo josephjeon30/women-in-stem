@@ -21,6 +21,7 @@ var create_postit = function(e) {
 		ctx.fillStyle = "rgb(0,0,0)";
 		ctx.font = "20px monospace"; 
 		place_text("daopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiw", coords[0], coords[1]);
+		send_data("dhfk"); //Will be relavent data that gives information about postit
 		//save data
 	}
 };
@@ -43,11 +44,12 @@ var draw = function(e) {
 		ctx.closePath();
 		//save data
 	}
-};
-
-var create_drawing = function(e) {
-  // To be figured out later
 }
+
+// var create_drawing = function(e) {
+//   // text[0:15]
+//   // To be figured out later
+// }
 
 function get_mouse_pos (e) {
   var rect_pos = canvas.getBoundingClientRect();

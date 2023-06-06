@@ -53,13 +53,14 @@ def user():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
     session_user = F"{get_username(session['ID'])}"
+    n = get_notepads(session['ID'])
 
     if(request.method == "POST"):
         selected_notepad = request.form.get("notepad")
-        print(selected_notepad)
+        
         return redirect(url_for("notepad", selected=selected_notepad))
 
-    return render_template("user.html",user=session_user)
+    return render_template("user.html",user=session_user, notepads=n)
 
 @app.route("/notepad", methods=["GET","POST"])
 def notepad():
@@ -76,6 +77,10 @@ def notepad():
 def testing():
     return render_template("notepad.html")
 
+@app.route("/process_sent_data", methods=["POST"])
+def process_data():
+    print(request.form.get('data'))
+    return render_template("notepad.html")
 
 if __name__ == "__main__":
     app.debug = True
