@@ -77,9 +77,9 @@ def notepad():
 def testing():
     return render_template("notepad.html")
 
-@app.route("/data_test", methods=["POST"])
+@app.route("/process_sent_data", methods=["POST"])
 def process_data():
-    print(request.form.get('test'))
+    print(request.form.get('data'))
     return render_template("notepad.html")
 
 if __name__ == "__main__":

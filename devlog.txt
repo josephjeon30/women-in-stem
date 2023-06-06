@@ -55,3 +55,10 @@ aprilL -- 2023-06-06 09:29
 -database can input new data types and get all the data
 -starting to implement adding new notepad and accessing it onto user.html
 ==============================================================
+
+henryB (e) -- 2023-06-06 9:26
+--------------------------------------------------------------
+- function to send data from js file to python for database
+storage
+- started function to do the reverse
+==============================================================
