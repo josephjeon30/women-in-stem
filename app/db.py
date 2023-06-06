@@ -7,7 +7,7 @@ c = db.cursor()
 c.executescript("""
     create TABLE if NOT EXISTS user(u_id int primary key, username varchar(20), password varchar(30));
     create TABLE if NOT EXISTS notepads(u_id int primary key, user_id int, name text);
-    create TABLE if NOT EXISTS test_notepad(u_id int primary key, name text, user_id int, type text, data text, xcord float, ycord float)
+    create TABLE if NOT EXISTS test_notepad(u_id int primary key, user_id int, type text, data text, xcord float, ycord float)
 """)
 c.close()
 
@@ -61,8 +61,8 @@ def account_match(username, password):
 
 def get_notepads(user_id):
     c = db.cursor()
-    c.execute("select distinct name from notepads where user_id = ?", (user_id,))
-    result = c.fetchone()
+    c.execute("select name from notepads where user_id = ?", (user_id,))
+    result = c.fetchall()
     c.close()
     return result
 
@@ -76,13 +76,29 @@ def create_notepad(user_id, name):
         new_id = 1
     c.execute("insert into notepads values(?,?,?)", (new_id,user_id,name))
     notepad_id = "a" + str(new_id)
-    c.execute("create TABLE if NOT EXISTS " + notepad_id + "(u_id int primary key, name text, user_id int, type text, data text, xcord float, ycord float)")
+    c.execute("create TABLE if NOT EXISTS " + notepad_id + "(u_id int primary key, user_id int, type text, data text, xcord float, ycord float)")
     db.commit()
     c.close()
 
-#def new_data(notepad_id, user_id, type, data, xcord, ycord)
+def new_data(notepad_id, user_id, type, data, xcord, ycord):
+    c = db.cursor()
+    notepad_name = "a" + str(notepad_id)
+    c.execute("SELECT MAX(u_id) FROM "+ notepad_name)
+    max_id = c.fetchone()
+    if (max_id[0] != None):
+        new_id = max_id[0] + 1
+    else:
+        new_id = 1
+    c.execute("insert into " + notepad_name + " values(?,?,?,?,?,?)", (new_id, user_id, type, data, xcord, ycord))
+    db.commit()
+    c.close()
 
-#register_new_user("akitss", "akitiss")
-#create_notepad(1, "jing a ling")
-#create_notepad(1, "henry henry henry")
-print(get_notepads(1))
+def get_all_data(notepad_id):
+    c = db.cursor()
+    notepad_name = "a" + str(notepad_id)
+    c.execute("select * from " + notepad_name)
+    result = c.fetchall()
+    db.commit()
+    c.close()
+    return result
+

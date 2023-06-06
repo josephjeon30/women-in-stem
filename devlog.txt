@@ -49,3 +49,8 @@ henryB (e) & josephJ (april) -- 2023-06-05 9:30
 - created/started basic js functions for creating new stuff
 - gitignore
 ==============================================================
+
+aprilL & jingF -- 2023-06-06 09:29
+--------------------------------------------------------------
+-database can input new data types and get all the data
+==============================================================
