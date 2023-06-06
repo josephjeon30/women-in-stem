@@ -61,7 +61,7 @@ def account_match(username, password):
 
 def get_notepads(user_id):
     c = db.cursor()
-    c.execute("select name from notepads where user_id = ?", (user_id,))
+    c.execute("select * from notepads where user_id = ?", (user_id,))
     result = c.fetchall()
     c.close()
     return result

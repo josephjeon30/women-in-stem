@@ -37,9 +37,12 @@
             <p> user core</p>
             
             <form action="/user" method="POST">
-                <button type="submit" class="btn" name="notepad" value="test_notepad"> TEST </button>
+                {% for notepad in notepads %}
+                    <button type="submit" class="btn" name="notepad" value="test_notepad"> {{notepad}} </button>
+                {% endfor %}
             </form>
-            
+
+
             <button type="submit" class="btn" value="submit"> Create New Notepad </button>
             
 
