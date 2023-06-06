@@ -52,5 +52,12 @@ henryB (e) & josephJ (april) -- 2023-06-05 9:30
 
 aprilL & jingF -- 2023-06-06 09:29
 --------------------------------------------------------------
--database can input new data types and get all the data
+- database can input new data types and get all the data
+==============================================================
+
+henryB (e) -- 2023-06-06 9:26
+--------------------------------------------------------------
+- function to send data from js file to python for database
+storage
+- started function to do the reverse
 ==============================================================
