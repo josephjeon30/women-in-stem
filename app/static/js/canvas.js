@@ -10,14 +10,15 @@ var create_postit = function(e) {
   ctx.fillStyle = "rgb(255, 255, 255)";
   ctx.fillRect(coords[0], coords[1], 200, 200);
   ctx.fillStyle = "rgb(0,0,0)";
-  ctx.font = "20px webdings" 
+  ctx.font = "20px webdings"
   ctx.fillText("lkajflkdsjlk", coords[0], coords[1]);
-  //save data
+  send_data();
 };
 
-var create_drawing = function(e) {
-  // To be figured out later
-}
+// var create_drawing = function(e) {
+//   // text[0:15]
+//   // To be figured out later
+// }
 
 function get_mouse_pos (e) {
   var rect_pos = canvas.getBoundingClientRect();
@@ -27,3 +28,15 @@ function get_mouse_pos (e) {
 }
 
 canvas.addEventListener("click", create_postit);
+
+function send_data () {
+
+  jQuery.ajax({
+    url: '/data_test',
+    type: 'POST',
+    data: {
+      test: "yayay!"
+    }
+  });
+
+}
