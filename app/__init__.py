@@ -66,10 +66,16 @@ def notepad():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
     session_user = F"{get_username(session['ID'])}"
-    
+
     #select which notepad
     selected_notepad=request.args.get('selected')
     return render_template("notepad.html",user=session_user, selected=selected_notepad)
+
+#remove later
+@app.route("/testing", methods=["GET","POST"])
+def testing():
+    return render_template("notepad.html")
+
 
 if __name__ == "__main__":
     app.debug = True
