@@ -44,15 +44,12 @@ def home_page():
         return redirect(url_for("login"))
     elif (get_username(session.get("ID")) == None):
         return redirect(url_for("login"))
-    else:
-        session_user = F"{get_username(session['ID'])}"
-    return render_template("home_page.html", user=session_user)
+    return render_template("home_page.html")
 
 @app.route("/user", methods=["GET","POST"])
 def user():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
-    session_user = F"{get_username(session['ID'])}"
     n = get_notepads(session['ID'])
 
     if(request.method == "POST"):
@@ -60,17 +57,28 @@ def user():
         
         return redirect(url_for("notepad", selected=selected_notepad))
 
-    return render_template("user.html",user=session_user, notepads=n)
+    return render_template("user.html", notepads=n)
 
 @app.route("/notepad", methods=["GET","POST"])
 def notepad():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
-    session_user = F"{get_username(session['ID'])}"
 
     #select which notepad
     selected_notepad=request.args.get('selected')
-    return render_template("notepad.html",user=session_user, selected=selected_notepad)
+    return render_template("notepad.html", selected=selected_notepad)
+
+@app.route("/create_notepad", methods=["GET", "POST"])
+def create_notepad():
+    create_note(session['ID'], "Notepad")
+    return redirect(url_for("user"))
+
+@app.route("/delete", methods=["GET", "POST"])
+def delete():
+    selected_notepad=request.form.get('selected')
+    delete_notepad(selected_notepad)
+    return redirect(url_for("user"))
+
 
 #remove later
 @app.route("/testing", methods=["GET","POST"])

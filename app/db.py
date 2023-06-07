@@ -66,7 +66,7 @@ def get_notepads(user_id):
     c.close()
     return result
 
-def create_notepad(user_id, name):
+def create_note(user_id, name): #create notepads
     c = db.cursor()
     c.execute("SELECT MAX(u_id) FROM notepads")
     max_id = c.fetchone()
@@ -102,3 +102,8 @@ def get_all_data(notepad_id):
     c.close()
     return result
 
+def delete_notepad(notepad_id):
+    c = db.cursor()
+    c.execute("DELETE FROM a" + str(notepad_id) + " WHERE u_id = ?", (notepad_id,))
+    db.commit()
+    c.close
