@@ -1,0 +1,13 @@
+#toolbar{
+	background-color:white;
+	position:fixed;
+	bottom:60px;
+	margin-left:auto;
+	margin-right:auto;
+	height:40px;
+	width: 30%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	text-align:center;
+	border-radius:20px;
+}

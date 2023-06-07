@@ -5,19 +5,33 @@ var clear_button = document.getElementById("clear");
 
 // console.log(canvas);
 var ctx = canvas.getContext("2d");
-ctx.fillStyle = "rgb(255,0,0)";
-ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
 var mouse_held_down = false;
 
+var resize = () => {
+	canvas.width = document.body.clientWidth;
+	canvas.height = document.body.clientHeight;
+	ctx.fillStyle = "rgba(95,154,128,1)";
+	ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
+}
+
+resize();
+window.addEventListener("resize", () => {
+	resize();
+})
+
 var mode = "post-it";
-var last_coords = [0,0]
+var last_coords = [0,0];
 
 var create_postit = function(e) {
 	if (mode == "post-it"){
 		let coords = get_mouse_pos(e);
 		console.log(coords);
-		ctx.fillStyle = "rgb(255, 255, 255)";
+		ctx.fillStyle = "rgb(255, 255, 153)";
+		ctx.shadowBlur = 10;
+		ctx.shadowOffsetY = 10;
+		ctx.shadowColor = "rgba(0,0,0,0.5)";
 		ctx.fillRect(coords[0], coords[1], 200, 200);
+		ctx.shadowColor = "rgba(0,0,0,0)";
 		ctx.fillStyle = "rgb(0,0,0)";
 		ctx.font = "20px monospace"; 
 		place_text("daopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiw", coords[0], coords[1]);
@@ -37,10 +51,12 @@ var draw = function(e) {
 	if (mode == "draw" && mouse_held_down){
 		let coords = get_mouse_pos(e);
 		console.log(coords);
-		ctx.fillStyle = "rgb(0,0,0)";
+		ctx.strokeStyle = "rgb(255,255,255)";
+		ctx.lineWidth = 10;
 		ctx.beginPath();
-		ctx.arc(coords[0], coords[1], 10, 0, Math.PI*2, true);
-		ctx.fill();
+		ctx.moveTo(last_coords[0], last_coords[1]);
+		ctx.lineTo(coords[0], coords[1])
+		ctx.stroke();
 		ctx.closePath();
 		//save data
 	}
