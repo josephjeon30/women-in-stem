@@ -39,6 +39,10 @@
             <p> notepad core</p>
             {{selected}}
 
+            <form action="/delete" method="POST">
+                <input type="hidden" name="selected" value="{{selected}}">
+                <button type="submit" class="btn" value="submit"> Delete </button>
+            </form>
 
         </div>
         <div class="container-fluid no-padding">
