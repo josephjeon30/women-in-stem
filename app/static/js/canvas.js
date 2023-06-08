@@ -33,10 +33,12 @@ var create_postit = function(e) {
 		ctx.fillRect(coords[0], coords[1], 200, 200);
 		ctx.shadowColor = "rgba(0,0,0,0)";
 		ctx.fillStyle = "rgb(0,0,0)";
-		ctx.font = "20px monospace"; 
-		place_text("daopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiw", coords[0], coords[1]);
-		send_data("dhfk"); //Will be relavent data that gives information about postit
-		//save data
+		ctx.font = "20px monospace";
+		let text = "daopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiw";
+		// process_data();
+		place_text(text, coords[0], coords[1]);
+		// send_data("notepad_id, user_id," postit, text, coords[0], coords[1]);
+		send_data(0, 0, "postit", text, coords[0], coords[1]);
 	}
 };
 

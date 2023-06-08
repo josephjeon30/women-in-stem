@@ -55,7 +55,7 @@ def user():
 
     if(request.method == "POST"):
         selected_notepad = request.form.get("notepad")
-        
+
         return redirect(url_for("notepad", selected=selected_notepad))
 
     return render_template("user.html", notepads=n, user=session_user)
@@ -88,9 +88,20 @@ def testing():
 
 @app.route("/process_sent_data", methods=["POST"])
 def process_data():
-    print(request.form.get('data'))
+    notepad_id = request.form.get('notepad_id')
+    user_id = request.form.get('user_id')
+    type = request.form.get('type')
+    data = request.form.get('data')
+    xcord = request.form.get('xcord')
+    ycord = request.form.get('ycord')
+    print(type)
+    new_data(notepad_id, user_id, type, data, xcord, ycord)
     return render_template("notepad.html")
+
+@app.route("/data_send", methods=['POST'])
+def data_send ():
+    return "ahksh"
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(port = '5000')
