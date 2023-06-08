@@ -34,26 +34,25 @@
         </nav>    
 
         <div class="body p-4">
-            <p> user core</p>
-            
+            <p> {{user}}</p>
+        
+            <div class ="container-fluid mb-5">
+                <form action="/create_notepad" method="POST">
+                    <button type="submit" class="btn" value="submit"> Create New Notepad </button>
+                </form>
+            </div>
+
+
             <!-- make buttons a grid -->
             <div class="container-fluid">
-            <form action="/user" method="POST"> <!-- goes through all the notepads and displays each one   -->
-                {% for notepad in notepads %}
-                    <button type="submit" class="btn" name="notepad" value="{{notepad[0]}}"> {{notepad[2]}} {{notepad[0]}}</button>
-                {% endfor %}
-            </form>
-            </div>
-
-
-            <div class ="container-fluid mt-5">
-            <form action="/create_notepad" method="POST">
-                <button type="submit" class="btn" value="submit"> Create New Notepad </button>
-            </form>
-            </div>
-
-
-
+                <form action="/user" method="POST"> <!-- goes through all the notepads and displays each one   -->
+                    {% for notepad in notepads %}
+                        <button type="submit" class="btn" name="notepad" value="{{notepad[0]}}"> {{notepad[2]}}</button>
+                    {% endfor %}
+                </form>
+                </div>
+    
+    
 
         </div>
         

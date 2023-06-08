@@ -50,6 +50,7 @@ def home_page():
 def user():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
+    session_user = F"{get_username(session['ID'])}"
     n = get_notepads(session['ID'])
 
     if(request.method == "POST"):
@@ -57,7 +58,7 @@ def user():
         
         return redirect(url_for("notepad", selected=selected_notepad))
 
-    return render_template("user.html", notepads=n)
+    return render_template("user.html", notepads=n, user=session_user)
 
 @app.route("/notepad", methods=["GET","POST"])
 def notepad():
@@ -66,11 +67,12 @@ def notepad():
 
     #select which notepad
     selected_notepad=request.args.get('selected')
-    return render_template("notepad.html", selected=selected_notepad)
+    notepad_name = get_name(selected_notepad)
+    return render_template("notepad.html", selected=selected_notepad, name=notepad_name)
 
 @app.route("/create_notepad", methods=["GET", "POST"])
 def create_notepad():
-    create_note(session['ID'], "Notepad")
+    create_note(session['ID'], "Untitled")
     return redirect(url_for("user"))
 
 @app.route("/delete", methods=["GET", "POST"])
@@ -78,7 +80,6 @@ def delete():
     selected_notepad=request.form.get('selected')
     delete_notepad(selected_notepad)
     return redirect(url_for("user"))
-
 
 #remove later
 @app.route("/testing", methods=["GET","POST"])
