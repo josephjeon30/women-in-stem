@@ -87,7 +87,6 @@ def testing():
 
 @app.route("/process_sent_data", methods=["POST"])
 def process_data():
-    print(request.form.get('type'))
     notepad_id = request.form.get('notepad_id')
     user_id = request.form.get('user_id')
     type = request.form.get('type')
@@ -96,11 +95,12 @@ def process_data():
     ycord = request.form.get('ycord')
     print(type)
     new_data(notepad_id, user_id, type, data, xcord, ycord)
-
     return render_template("notepad.html")
 
-# @app.route("/get")s
+@app.route("/data_send", methods=['POST'])
+def data_send ():
+    return "ahksh"
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(port = '5000')

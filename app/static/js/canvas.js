@@ -35,9 +35,10 @@ var create_postit = function(e) {
 		ctx.fillStyle = "rgb(0,0,0)";
 		ctx.font = "20px monospace";
 		let text = "daopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiwdaopifha;oifuoahlgifhafihafhihekjfgfgiwfgisgiwahuiuiw";
+		// process_data();
 		place_text(text, coords[0], coords[1]);
 		// send_data("notepad_id, user_id," postit, text, coords[0], coords[1]);
-		send_data(0, 0, "postit", text, coords[0], coords[1]); 
+		send_data(0, 0, "postit", text, coords[0], coords[1]);
 	}
 };
 

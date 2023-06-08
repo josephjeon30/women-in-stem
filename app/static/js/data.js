@@ -9,7 +9,6 @@ function send_data (notepad_id, user_id, type, data, xcord, ycord) {
       data: data,
       xcord: xcord,
       ycord: ycord
-      // new_data(notepad_id, user_id, type, data, xcord, ycord)
     }
   });
 }
@@ -23,8 +22,7 @@ function process_data () {
         console.log(data);
       }
     };
-    xhttp.open(formElement.method, formElement.action, true); //stuff
-    // var data_form = new FormData(formElement);
-    xhttp.send();//data_form);
+    xhttp.open("POST", "/data_send");
+    xhttp.send();
     return false;
 }
