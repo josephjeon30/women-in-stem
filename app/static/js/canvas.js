@@ -28,8 +28,6 @@ var items_placed = [];
 var create_postit = function(e) {
 	let coords = get_mouse_pos(e);
 	create_postit_2(coords[0]-100, coords[1]-100, String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random()));
-	send_data("dhfk"); //Will be relavent data that gives information about postit
-	//save data
 }
 
 var create_postit_with_coords = (x,y,text) => {
@@ -138,6 +136,7 @@ var mouse_up = function(e){
 	if (mode == "draw"){
 		items_placed.push(["stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]]);
 		console.log(items_placed[items_placed.length - 1])
+		send_data(0, 0, "stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]);
 	}
 	draw_path = [];
 }
