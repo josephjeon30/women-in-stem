@@ -36,9 +36,9 @@
 
         <div class="body p-4">
             <!-- Ignoring... -->
-            <p> notepad core</p>
-            {{selected}}
-
+            <p> {{name}} </p> 
+            <button type="submit" class="btn" value="submit"> Change Name</button>
+            
             <form action="/delete" method="POST">
                 <input type="hidden" name="selected" value="{{selected}}">
                 <button type="submit" class="btn" value="submit"> Delete </button>

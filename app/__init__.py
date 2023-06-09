@@ -50,14 +50,15 @@ def home_page():
 def user():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
+    session_user = F"{get_username(session['ID'])}"
     n = get_notepads(session['ID'])
 
     if(request.method == "POST"):
         selected_notepad = request.form.get("notepad")
-        
+
         return redirect(url_for("notepad", selected=selected_notepad))
 
-    return render_template("user.html", notepads=n)
+    return render_template("user.html", notepads=n, user=session_user)
 
 @app.route("/notepad", methods=["GET","POST"])
 def notepad():
@@ -66,11 +67,12 @@ def notepad():
 
     #select which notepad
     selected_notepad=request.args.get('selected')
-    return render_template("notepad.html", selected=selected_notepad)
+    notepad_name = get_name(selected_notepad)
+    return render_template("notepad.html", selected=selected_notepad, name=notepad_name)
 
 @app.route("/create_notepad", methods=["GET", "POST"])
 def create_notepad():
-    create_note(session['ID'], "Notepad")
+    create_note(session['ID'], "Untitled")
     return redirect(url_for("user"))
 
 @app.route("/delete", methods=["GET", "POST"])
@@ -79,7 +81,6 @@ def delete():
     delete_notepad(selected_notepad)
     return redirect(url_for("user"))
 
-
 #remove later
 @app.route("/testing", methods=["GET","POST"])
 def testing():
@@ -87,9 +88,20 @@ def testing():
 
 @app.route("/process_sent_data", methods=["POST"])
 def process_data():
-    print(request.form.get('data'))
+    notepad_id = request.form.get('notepad_id')
+    user_id = request.form.get('user_id')
+    type = request.form.get('type')
+    data = request.form.get('data')
+    xcord = request.form.get('xcord')
+    ycord = request.form.get('ycord')
+    print(type)
+    new_data(notepad_id, user_id, type, data, xcord, ycord)
     return render_template("notepad.html")
+
+@app.route("/data_send", methods=['POST'])
+def data_send ():
+    return "ahksh"
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(port = '5000')

@@ -32,7 +32,7 @@ var create_postit = function(e) {
 	//save data
 }
 
-var create_postit_2 = (x,y,text) => {
+var create_postit_with_coords = (x,y,text) => {
 	ctx.fillStyle = "rgb(255, 255, 153)";
 	ctx.shadowBlur = 10;
 	ctx.shadowOffsetY = 10;
@@ -43,6 +43,7 @@ var create_postit_2 = (x,y,text) => {
 	ctx.font = "20px monospace"; 
 	place_text(text, x, y);
 	items_placed.push(["post-it",text,x,y]);
+	send_data(0, 0, "postit", text, x, y);
 }
 
 var edit_postit = (e) => {

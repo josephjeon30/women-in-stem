@@ -104,6 +104,23 @@ def get_all_data(notepad_id):
 
 def delete_notepad(notepad_id):
     c = db.cursor()
-    c.execute("DELETE FROM a" + str(notepad_id) + " WHERE u_id = ?", (notepad_id,))
+    c.execute("DELETE FROM notepads WHERE u_id = ?", (notepad_id,))
+    c.execute("DROP TABLE if exists a" + notepad_id)
     db.commit()
     c.close
+
+def change_notepad_name(notepad_id, new_name):
+    c = db.cursor()
+    c.execute("update notepads set name = ?", (new_name,))
+    db.commit()
+    c.close()
+
+def get_name(notepad_id):
+    c = db.cursor()
+    c.execute("select name from notepads where u_id = ?", (notepad_id,))
+    result = c.fetchone()
+    c.close()
+    if(result != None):
+        return result[0]
+    else:
+        return None
