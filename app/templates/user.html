@@ -47,7 +47,16 @@
             <div class="container-fluid">
                 <form action="/user" method="POST"> <!-- goes through all the notepads and displays each one   -->
                     {% for notepad in notepads %}
-                        <button type="submit" class="btn" name="notepad" value="{{notepad[0]}}"> {{notepad[2]}}</button>
+                    <div class = "col">
+                    <div class="card my-2 mx-1" style="width: 30rem;">
+                        <div class="card-header">
+                            {{notepad[2]}}
+                        </div>
+                        <div class="card-body">
+                            <button type="submit" class="btn" name="notepad" value="{{notepad[0]}}"> Edit </button>
+                        </div>
+                    </div>
+                    </div>
                     {% endfor %}
                 </form>
                 </div>

@@ -149,6 +149,7 @@ var mouse_up = function(e){
 	if (mode == "draw"){
 		items_placed.push(["stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]]);
 		console.log(items_placed[items_placed.length - 1])
+		send_data(0, 0, "stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]);
 	}
 	draw_path = [];
 }

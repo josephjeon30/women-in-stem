@@ -76,3 +76,7 @@ henryB (e) -- 2023-06-09 9:39
 - js gets notepad_id
 - successfully saves and later utilizes postit data
 ==============================================================
+
+aprilL -- 2023-06-09 09:34
+--------------------------------------------------------------
+-trying to make display for notepads better....
