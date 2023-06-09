@@ -102,6 +102,13 @@ def get_all_data(notepad_id):
     c.close()
     return result
 
+def get_all_notepads():
+    c.db.cursor()
+    c.execute("select * from notepads")
+    result = c.fetchall()
+    c.close
+    return result
+
 def delete_notepad(notepad_id):
     c = db.cursor()
     c.execute("DELETE FROM notepads WHERE u_id = ?", (notepad_id,))
