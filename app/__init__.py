@@ -95,7 +95,7 @@ def process_data():
     xcord = request.form.get('xcord')
     ycord = request.form.get('ycord')
     print(type)
-    new_data(notepad_id, user_id, type, data, xcord, ycord)
+    # new_data(notepad_id, user_id, type, data, xcord, ycord)
     return render_template("notepad.html")
 
 @app.route("/data_send", methods=['POST'])

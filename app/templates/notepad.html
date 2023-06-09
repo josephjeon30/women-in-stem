@@ -36,9 +36,9 @@
 
         <div class="body p-4">
             <!-- Ignoring... -->
-            <p> {{name}} </p> 
+            <p> {{name}} </p>
             <button type="submit" class="btn" value="submit"> Change Name</button>
-            
+
             <form action="/delete" method="POST">
                 <input type="hidden" name="selected" value="{{selected}}">
                 <button type="submit" class="btn" value="submit"> Delete </button>
@@ -64,6 +64,10 @@
             <button id="clear">
                 clear
             </button>
+        </div>
+
+        <div id="notepad_id">
+            {{selected}}
         </div>
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
