@@ -94,13 +94,12 @@ def process_data():
     data = request.form.get('data')
     xcord = request.form.get('xcord')
     ycord = request.form.get('ycord')
-    print(type)
-    # new_data(notepad_id, user_id, type, data, xcord, ycord)
+    new_data(notepad_id, user_id, type, data, xcord, ycord)
     return render_template("notepad.html")
 
-@app.route("/data_send", methods=['POST'])
-def data_send ():
-    return "ahksh"
+@app.route("/data_send/<notepad_id>", methods=['POST'])
+def data_send (notepad_id):
+    return get_all_data(notepad_id)
 
 if __name__ == "__main__":
     app.debug = True

@@ -69,3 +69,10 @@ henryB (e) -- 2023-06-08 15:17
 the database
 - function to retrieve data should work
 ==============================================================
+
+henryB (e) -- 2023-06-09 9:39
+--------------------------------------------------------------
+- fixed all merge errors and combined code
+- js gets notepad_id
+- successfully saves and later utilizes postit data
+==============================================================

@@ -9,6 +9,7 @@ var ctx = canvas.getContext("2d");
 var mouse_held_down = false;
 var notepad_id = parseInt(document.getElementById("notepad_id").innerHTML);
 
+process_data(notepad_id);
 // console.log(notepad_id);
 
 var resize = () => {
@@ -30,8 +31,9 @@ var items_placed = [];
 
 var create_postit = function(e) {
 	let coords = get_mouse_pos(e);
-	create_postit_with_coords(coords[0]-100, coords[1]-100, String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random()));
-	//save data
+	text = String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random())+String(Math.random());
+	create_postit_with_coords(coords[0]-100, coords[1]-100, text);
+	send_data(notepad_id, 0, "postit", text, coords[0]-100, coords[1]-100);
 }
 
 var create_postit_with_coords = (x,y,text) => {
@@ -45,7 +47,14 @@ var create_postit_with_coords = (x,y,text) => {
 	ctx.font = "20px monospace";
 	place_text(text, x, y);
 	items_placed.push(["post-it",text,x,y]);
-	send_data(notepad_id, 0, "postit", text, x, y);
+}
+
+function create_item (item) {
+	if (item[2] == "postit") {
+		create_postit_with_coords(item[4],item[5],item[3]);
+		return true;
+	}
+	return false;
 }
 
 var edit_postit = (e) => {
