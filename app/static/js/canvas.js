@@ -6,6 +6,9 @@ var clear_button = document.getElementById("clear");
 // console.log(canvas);
 var ctx = canvas.getContext("2d");
 var mouse_held_down = false;
+var notepad_id = parseInt(document.getElementById("notepad_id").innerHTML);
+
+// console.log(notepad_id);
 
 var resize = () => {
 	canvas.width = document.body.clientWidth;
@@ -38,7 +41,7 @@ var create_postit = function(e) {
 		// process_data();
 		place_text(text, coords[0], coords[1]);
 		// send_data("notepad_id, user_id," postit, text, coords[0], coords[1]);
-		send_data(0, 0, "postit", text, coords[0], coords[1]);
+		send_data(notepad_id, 0, "postit", text, coords[0], coords[1]);
 	}
 };
 
