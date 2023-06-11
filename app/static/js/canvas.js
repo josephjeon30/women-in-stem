@@ -71,14 +71,23 @@ var edit_postit = (e) => {
 
 var open_menu = (index) => {
 	let display_html = '<h1>' +
-			'<form action="/save_postit_edit" method="POST">' +
-				'<input type="text" value='+items_placed[index][1].substring(0,135)+' maxlength=136>' + //maxlength 135?
+			'<form onsubmit="edit_postit_text('+index+')" method="POST">' + //(index, new_value)
+				'<input id="new_text" type="text" value='+items_placed[index][1].substring(0,135)+' maxlength=135>' +
 				'<input type="submit" value="Confirm Changes">' +
 			'</form>' +
 		'</h1>';
 	document.getElementById("post-it-edit-menu").style.display = "block";
 	document.getElementById("post-it-edit-menu").innerHTML = display_html;
-	// console.log(display_html);
+}
+
+function edit_postit_text(index) {
+	let new_text = document.getElementById('new_text').value;
+	let x = items_placed[index][2];
+	let y = items_placed[index][3];
+	// delete old postit there
+	// create_postit_with_coords(new_text, x, y);
+	send_data(notepad_id, 0, "postit", new_text, x, y);
+
 }
 
 var place_text = function(text, x, y) {
