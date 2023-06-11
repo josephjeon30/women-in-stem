@@ -70,8 +70,15 @@ var edit_postit = (e) => {
 }
 
 var open_menu = (index) => {
+	let display_html = '<h1>' +
+			'<form action="/save_postit_edit" method="POST">' +
+				'<input type="text" value='+items_placed[index][1].substring(0,135)+' maxlength=136>' + //maxlength 135?
+				'<input type="submit" value="Confirm Changes">' +
+			'</form>' +
+		'</h1>';
 	document.getElementById("post-it-edit-menu").style.display = "block";
-	document.getElementById("post-it-edit-menu").innerHTML = "<h1>"+items_placed[index][1].substring(0,135)+"</h1>"
+	document.getElementById("post-it-edit-menu").innerHTML = display_html;
+	// console.log(display_html);
 }
 
 var place_text = function(text, x, y) {
