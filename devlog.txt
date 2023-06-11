@@ -82,9 +82,10 @@ aprilL -- 2023-06-09 09:34
 -trying to make display for notepads better....
 ==============================================================
 
-henryB (e) -- 2023-06-11 13:58
+henryB (e) -- 2023-06-11 14:11
 --------------------------------------------------------------
 - postits can be edited but:
   - we need to delete the old one
   - we need to make the input box better
+- formatting + better prints
 ==============================================================
