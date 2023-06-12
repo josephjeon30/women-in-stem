@@ -8,7 +8,8 @@ April Li, Henry Bach, Jing Yi Feng, Joseph Jeon
 - Jing: Front End Framework, Database, Fox
 
 ## About
-
+Our website hosts virtual notepads. Each user can freely create as many notepads as they desire and edit them. Users may create post-its and edit them as they please.
+Users may also freely draw on notepads and clear them. Users may also delete the notepad. 
 
 ## Launch Codes
 #### 1) Clone the project
