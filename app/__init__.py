@@ -5,38 +5,42 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = "temp"
 
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if ( request.method == "GET" ):
+    if (request.method == "GET"):
         return render_template("login.html")
     Input0 = request.form.get("username")
     Input1 = request.form.get("password")
     session_id = account_match(Input0, Input1)
-    if ( session_id != None ):
+    if (session_id != None):
         session["ID"] = session_id
         return redirect(url_for("home_page"))
     return render_template("login.html", status="Username and passwords do not match.")
 
+
 @app.route("/logout", methods=["GET", "POST"])
 def logout():
-    session.pop("ID",None)
+    session.pop("ID", None)
     return redirect(url_for("login", status="Please login"))
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register_page():
-    if( request.method == "GET"):
+    if(request.method == "GET"):
         return render_template("register.html")
     Input0 = request.form.get("username")
     Input1 = request.form.get("password")
     Input2 = request.form.get("confirmation")
     if Input1 == Input2:
         Session_id = register_new_user(Input0, Input1)
-        if( Session_id != -1 ):
+        if (Session_id != -1):
             session["ID"] = Session_id
             return redirect(url_for("home_page"))
         return render_template("register.html", status="Login info is in use.")
     else:
         return render_template("register.html", status="Passwords do not match.")
+
 
 @app.route("/", methods=["GET", "POST"])
 def home_page():
@@ -46,7 +50,8 @@ def home_page():
         return redirect(url_for("login"))
     return render_template("home_page.html")
 
-@app.route("/user", methods=["GET","POST"])
+
+@app.route("/user", methods=["GET", "POST"])
 def user():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
@@ -60,31 +65,37 @@ def user():
 
     return render_template("user.html", notepads=n, user=session_user)
 
-@app.route("/notepad", methods=["GET","POST"])
+
+@app.route("/notepad", methods=["GET", "POST"])
 def notepad():
     if(session.get("ID", None) == None):
         return redirect(url_for("login"))
 
-    #select which notepad
-    selected_notepad=request.args.get('selected')
+    # select which notepad
+    selected_notepad = request.args.get('selected')
     notepad_name = get_name(selected_notepad)
     return render_template("notepad.html", selected=selected_notepad, name=notepad_name)
+
 
 @app.route("/create_notepad", methods=["GET", "POST"])
 def create_notepad():
     create_note(session['ID'], "Untitled")
     return redirect(url_for("user"))
 
+
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
-    selected_notepad=request.form.get('selected')
+    selected_notepad = request.form.get('selected')
     delete_notepad(selected_notepad)
     return redirect(url_for("user"))
 
-#remove later
-@app.route("/testing", methods=["GET","POST"])
+# remove later
+
+
+@app.route("/testing", methods=["GET", "POST"])
 def testing():
     return render_template("notepad.html")
+
 
 @app.route("/process_sent_data", methods=["POST"])
 def process_data():
@@ -95,12 +106,15 @@ def process_data():
     xcord = request.form.get('xcord')
     ycord = request.form.get('ycord')
     new_data(notepad_id, user_id, type, data, xcord, ycord)
+    print(notepad_id, user_id, type, data, xcord, ycord)
     return render_template("notepad.html")
 
+
 @app.route("/data_send/<notepad_id>", methods=['POST'])
-def data_send (notepad_id):
+def data_send(notepad_id):
     return get_all_data(notepad_id)
+
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(port = '5000')
+    app.run(port='5000')

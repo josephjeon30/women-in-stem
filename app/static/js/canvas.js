@@ -55,6 +55,9 @@ function create_item(item) {
   if (item[2] == "postit") {
     create_postit_with_coords(item[4], item[5], item[3]);
     return true;
+  } else if (item[2] == "stroke") {
+  	draw_2(item[3]);
+		return true;
   }
   console.log("Error: An instance of " + item[2] + " was not placed");
   return false;
@@ -93,7 +96,7 @@ function edit_postit_text(index) {
   let new_text = document.getElementById('new_text').value;
   let x = items_placed[index][2];
   let y = items_placed[index][3];
-  // delete old postit there
+  // delete old postit here
   // create_postit_with_coords(new_text, x, y);
   send_data(notepad_id, 0, "postit", new_text, x, y);
 
@@ -108,6 +111,10 @@ var place_text = function(text, x, y) {
 var draw = (e) => {
   if (mode == "draw" && mouse_held_down) {
     let coords = get_mouse_pos(e);
+// 		place_draw(coords[0], coords[1]);
+// 	}
+//
+// function place_draw (x, y) {
     ctx.strokeStyle = "rgb(255,255,255)";
     ctx.lineWidth = 10;
     ctx.beginPath();
@@ -159,6 +166,7 @@ var clear = function(e) {
   ctx.fillStyle = "rgba(95,154,128,1)";
   ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
   ctx.fillStyle = "rgb(0,0,0)";
+	// deletes from database!!
 }
 
 var mouse_down = function(e) {
@@ -174,7 +182,7 @@ var mouse_up = function(e) {
   if (mode == "draw") {
     items_placed.push(["stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]]);
     console.log(items_placed[items_placed.length - 1])
-    send_data(0, 0, "stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]);
+    send_data(notepad_id, 0, "stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]);
   }
   draw_path = [];
 }
