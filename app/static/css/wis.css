@@ -1,22 +1,24 @@
-body{
-	background-color:#dbd8f0;
-	text-align: center;
+body {
+  background-color: #dbd8f0;
+  text-align: center;
 }
 
-#toolbar{
-	background-color:white;
-	position:fixed;
-	bottom:60px;
-	margin-left:auto;
-	margin-right:auto;
-	height:40px;
-	padding-left:20px;
-	padding-right:20px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	text-align:center;
-	border-radius:10px;
+#toolbar {
+  background-color: white;
+  position: fixed;
+  bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  border-radius: 10px;
 }
+
+
 
 #toolbar button{
 	color:gray;
@@ -38,6 +40,7 @@ body{
 }
 
 #post-it-edit-menu{
+	display: none;
 	position: fixed;
 	height:350px;
 	width:350px;
@@ -54,11 +57,12 @@ body{
 	z-index:9;
 }
 
-#post-it-edit-menu h1{
-	font-size:32px;
-	text-align:center;
+#post-it-edit-menu h1 {
+  font-size: 32px;
+  text-align: center;
 }
 
+<<<<<<< HEAD
 #quit-menu{
 	position: fixed;
 	border:2px solid red;
@@ -88,4 +92,8 @@ body{
 	left:50%;
 	top:50%;
 	transform: translate(-50%, -50%);
+=======
+.section {
+  font-size: 32px;
+>>>>>>> e733b3a8246ca6583ddb0618a0aca5a88d5cc07a
 }

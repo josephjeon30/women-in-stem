@@ -1,4 +1,4 @@
-function send_data (notepad_id, user_id, type, data, xcord, ycord) {
+function send_data(notepad_id, user_id, type, data, xcord, ycord) {
   jQuery.ajax({
     url: '/process_sent_data',
     type: 'POST',
@@ -13,16 +13,20 @@ function send_data (notepad_id, user_id, type, data, xcord, ycord) {
   });
 }
 
-function process_data () {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState === 4) {
-        let data = xhttp.responseText;
-        //Process data
-        console.log(data);
+function process_data(notepad_id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState === 4) {
+      let raw_data = xhttp.responseText;
+      let data = JSON.parse(raw_data);
+      //Process data
+      for (i in data) {
+        let item = data[i]
+        create_item(item);
       }
-    };
-    xhttp.open("POST", "/data_send");
-    xhttp.send();
-    return false;
+    }
+  };
+  xhttp.open("POST", "/data_send/" + notepad_id);
+  xhttp.send();
+  return false;
 }

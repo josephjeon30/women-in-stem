@@ -69,3 +69,23 @@ henryB (e) -- 2023-06-08 15:17
 the database
 - function to retrieve data should work
 ==============================================================
+
+henryB (e) -- 2023-06-09 9:39
+--------------------------------------------------------------
+- fixed all merge errors and combined code
+- js gets notepad_id
+- successfully saves and later utilizes postit data
+==============================================================
+
+aprilL -- 2023-06-09 09:34
+--------------------------------------------------------------
+-trying to make display for notepads better....
+==============================================================
+
+henryB (e) -- 2023-06-11 14:11
+--------------------------------------------------------------
+- postits can be edited but:
+  - we need to delete the old one
+  - we need to make the input box better
+- formatting + better prints
+==============================================================

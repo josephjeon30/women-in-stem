@@ -3,7 +3,7 @@ import csv
 DB_FILE = "file.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
-c = db.cursor() 
+c = db.cursor()
 c.executescript("""
     create TABLE if NOT EXISTS user(u_id int primary key, username varchar(20), password varchar(30));
     create TABLE if NOT EXISTS notepads(u_id int primary key, user_id int, name text);
@@ -11,7 +11,7 @@ c.executescript("""
 """)
 c.close()
 
-#note: names of tables must start with a letter, so the table of each notepad will be named after the the id with "a" in the front 
+#note: names of tables must start with a letter, so the table of each notepad will be named after the the id with "a" in the front
 
 def get_username(id):
     c = db.cursor()
@@ -30,10 +30,10 @@ def get_password(id):
     c.close()
     if(result == None):
         return None
-    else: 
+    else:
         return result[0]
 
-def register_new_user(username, password): 
+def register_new_user(username, password):
     c = db.cursor()
     c.execute("select exists(select 1 from user where username=?)", (username,))
     if (c.fetchone()[0] == 1):
@@ -100,6 +100,13 @@ def get_all_data(notepad_id):
     result = c.fetchall()
     db.commit()
     c.close()
+    return result
+
+def get_all_notepads():
+    c.db.cursor()
+    c.execute("select * from notepads")
+    result = c.fetchall()
+    c.close
     return result
 
 def delete_notepad(notepad_id):
