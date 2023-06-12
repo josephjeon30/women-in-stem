@@ -111,10 +111,6 @@ var place_text = function(text, x, y) {
 var draw = (e) => {
   if (mode == "draw" && mouse_held_down) {
     let coords = get_mouse_pos(e);
-// 		place_draw(coords[0], coords[1]);
-// 	}
-//
-// function place_draw (x, y) {
     ctx.strokeStyle = "rgb(255,255,255)";
     ctx.lineWidth = 10;
     ctx.beginPath();
@@ -122,7 +118,6 @@ var draw = (e) => {
     ctx.lineTo(coords[0], coords[1]);
     ctx.stroke();
     ctx.closePath();
-    //save data
   }
 }
 
