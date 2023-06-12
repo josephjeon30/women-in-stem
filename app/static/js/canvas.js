@@ -3,6 +3,7 @@ var create_postit_button = document.getElementById("create-post-it");
 var edit_postit_button = document.getElementById("edit-post-it");
 var draw_button = document.getElementById("draw");
 var clear_button = document.getElementById("clear");
+var quit_editing_menu_button = document.getElementById("quit-menu");
 
 // console.log(canvas);
 var ctx = canvas.getContext("2d");
@@ -60,8 +61,12 @@ var edit_postit = (e) => {
 }
 
 var open_menu = (index) => {
-	document.getElementById("post-it-edit-menu").style.display = "block";
-	document.getElementById("post-it-edit-menu").innerHTML = "<h1>"+items_placed[index][1].substring(0,135)+"</h1>"
+	document.getElementById("edit-menu").style.display = "block";
+	document.getElementById("post-it-edit-menu").innerHTML = "<h1>"+items_placed[index][1].substring(0,135)+"</h1>";
+}
+
+var close_menu = () => {
+	document.getElementById("edit-menu").style.display = "none";
 }
 
 var place_text = function(text, x, y) {
@@ -183,3 +188,4 @@ create_postit_button.addEventListener("click", create_post_it_mode);
 edit_postit_button.addEventListener("click", edit_post_it_mode);
 draw_button.addEventListener("click", draw_mode);
 clear_button.addEventListener("click", clear);
+quit_editing_menu_button.addEventListener("click", close_menu)

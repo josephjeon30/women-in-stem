@@ -23,17 +23,21 @@ body{
 	border:0px;
 	height:100%;
 	border-radius:10px;
+	transition: background-color 0.3s ease-out 100ms, color 0.3s ease-out 100ms, border 0.3s ease-out 100ms, color 0.3s ease-out 100ms;
 }
 
 #toolbar button:hover{
-	color:rgb(200,200,200);
+	color:rgb(220,220,220);
 	border:0px;
 	height:100%;
 	background-color:rgb(100,100,100);
 }
 
+#edit-menu{
+	display:none;
+}
+
 #post-it-edit-menu{
-	display: none;
 	position: fixed;
 	height:350px;
 	width:350px;
@@ -47,9 +51,41 @@ body{
 	left:50%;
 	top:50%;
 	transform: translate(-50%, -50%);
+	z-index:9;
 }
 
 #post-it-edit-menu h1{
 	font-size:32px;
 	text-align:center;
+}
+
+#quit-menu{
+	position: fixed;
+	border:2px solid red;
+	color:red;
+	background-color:rgba(0,0,0,0);
+	left:10%;
+	top:10%;
+	width:40px;
+	height:40px;
+	border-radius:20px;
+	z-index:9;
+	transition: background-color 0.3s ease-out 100ms, color 0.3s ease-out 100ms, border 0.3s ease-out 100ms, color 0.3s ease-out 100ms;
+}
+
+#quit-menu:hover{
+	background-color:red;
+	color:white;
+}
+
+#translucent-black{
+	position: fixed;
+	z-index:8;
+	height:100%;
+	width:100%;
+	background-color:rgba(0,0,0,0.3);
+	margin:auto;
+	left:50%;
+	top:50%;
+	transform: translate(-50%, -50%);
 }
