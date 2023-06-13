@@ -131,3 +131,9 @@ def get_name(notepad_id):
         return result[0]
     else:
         return None
+
+def clear_data(notepad_id):
+    c = db.cursor()
+    c.execute("DELETE FROM a" + str(notepad_id))
+    db.commit()
+    c.close()
