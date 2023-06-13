@@ -62,20 +62,26 @@
       </div>
     </div>
     <div id="toolbar">
-      <button id="create-post-it">
-        create post-it
-      </button>
-      <button id="edit-post-it">
-        edit post-it
-      </button>
-      <button id="draw">
-        draw
-      </button>
-      <form action="/clear/{{selected}}">
-        <button id="clear" type="submit">
-          clear
-        </button>
-      </form>
+      <table>
+        <tr>
+          <button id="create-post-it">
+            create post-it
+          </button>
+          <button id="edit-post-it">
+            edit post-it
+          </button>
+          <button id="draw">
+            draw
+          </button>
+      </tr>
+      <tr>
+          <form action="/clear/{{selected}}">
+            <button id="clear" type="submit">
+              clear
+            </button>
+          </form>
+      </tr>
+      </table>
     </div>
 
 

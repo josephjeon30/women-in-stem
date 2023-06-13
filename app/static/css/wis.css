@@ -93,7 +93,11 @@ body {
 	margin-top:20px;
 	height:250px;
 	width:100%;
-	margin-bottom:20px;
+	margin-bottom:10px;
+	background-color:yellow;
+	resize:none;
+	border: 1px solid rgb(200,200,0);
+	border-radius:10px;
 }
 
 #translucent-black{

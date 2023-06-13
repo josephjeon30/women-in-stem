@@ -82,7 +82,7 @@ var open_menu = (index) => {
 	document.getElementById("post-it-edit-menu").innerHTML = "<h1>"+items_placed[index][1].substring(0,135)+"</h1>";
   let display_html = '<h1>' +
     '<form onsubmit="edit_postit_text(' + index + ')" method="POST">' +
-    '<input id="new_text" type="text" value=\"' + items_placed[index][1].substring(0, 135) + ' \"maxlength=135>' +
+    '<textarea id="new_text" type="text" maxlength=135 placeholder="Insert text here...">' + items_placed[index][1].substring(0, 135) + '</textarea>' +
     '<input type="submit" value="Confirm Changes">' +
     '</form>' +
     '</h1>';
