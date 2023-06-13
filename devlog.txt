@@ -120,3 +120,9 @@ henryB (e) -- 2023-06-12 23:29
 - name change form only appears when edit button clicked
 - fixed bug where name of notepad could be deleted
 ==============================================================
+
+aprilL -- 2023-06-12 23:36
+--------------------------------------------------------------
+-pop up delete core for the html is working
+-delete popup is a card
+==============================================================
