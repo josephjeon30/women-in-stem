@@ -34,9 +34,10 @@ var items_placed = [];
 
 var create_postit = function(e) {
   let coords = get_mouse_pos(e);
-  text = String(Math.random()) + String(Math.random()) + String(Math.random()) + String(Math.random()) + String(Math.random()) + String(Math.random()) + String(Math.random()) + String(Math.random());
+  text = "";
   create_postit_with_coords(coords[0] - 100, coords[1] - 100, text);
   send_data(notepad_id, 0, "postit", text, coords[0] - 100, coords[1] - 100);
+  open_menu(items_placed.length - 1);
 }
 
 var create_postit_with_coords = (x, y, text) => {
@@ -81,7 +82,7 @@ var open_menu = (index) => {
 	document.getElementById("post-it-edit-menu").innerHTML = "<h1>"+items_placed[index][1].substring(0,135)+"</h1>";
   let display_html = '<h1>' +
     '<form onsubmit="edit_postit_text(' + index + ')" method="POST">' +
-    '<input id="new_text" type="text" value=' + items_placed[index][1].substring(0, 135) + ' maxlength=135>' +
+    '<input id="new_text" type="text" value=\"' + items_placed[index][1].substring(0, 135) + ' \"maxlength=135>' +
     '<input type="submit" value="Confirm Changes">' +
     '</form>' +
     '</h1>';
