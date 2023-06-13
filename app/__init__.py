@@ -123,7 +123,6 @@ def clear (notepad_id):
 def change_name():
     new_name = request.form.get("change_name")
     selected_notepad = request.args.get('selected')
-    print(new_name)
     if (new_name == None):
         old_name = get_name(selected_notepad)
         return redirect(url_for("notepad", selected=selected_notepad, name=old_name))
