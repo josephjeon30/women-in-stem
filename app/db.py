@@ -122,6 +122,8 @@ def change_notepad_name(notepad_id, new_name):
     db.commit()
     c.close()
 
+#change_notepad_name(1, "wow")
+
 def get_name(notepad_id):
     c = db.cursor()
     c.execute("select name from notepads where u_id = ?", (notepad_id,))
