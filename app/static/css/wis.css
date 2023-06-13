@@ -26,6 +26,14 @@ body {
 	transition: background-color 0.3s ease-out 100ms, color 0.3s ease-out 100ms, border 0.3s ease-out 100ms, color 0.3s ease-out 100ms;
 }
 
+#toolbar form{
+	color:gray;
+	border:0px;
+	height:100%;
+	border-radius:10px;
+	transition: background-color 0.3s ease-out 100ms, color 0.3s ease-out 100ms, border 0.3s ease-out 100ms, color 0.3s ease-out 100ms;
+}
+
 #toolbar button:hover{
 	color:rgb(220,220,220);
 	border:0px;
