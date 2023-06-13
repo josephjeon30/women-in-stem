@@ -44,41 +44,43 @@
       <button type="submit" class="btn" value="submit"> Delete </button>
     </form>
 
-        <div class="container-fluid no-padding">
-            <canvas id="notepad" height="10000%"> </canvas>
-        </div>
-        <div id = "edit-menu">
-            <button id="quit-menu">
-                X
-            </button>
-            <div id = "translucent-black"></div>
-            <div id = "post-it-edit-menu">
-                <p>something failed</p>
-            </div>
-        </div>
-        <div id="toolbar">
-            <button id="create-post-it">
-                create post-it
-            </button>
-            <button id="edit-post-it">
-                edit post-it
-            </button>
-            <button id="draw">
-                draw
-            </button>
-            <button id="clear">
-                clear
-            </button>
-        </div>
+    <div class="container-fluid no-padding">
+      <canvas id="notepad" height="10000%"> </canvas>
+    </div>
+    <div id="edit-menu">
+      <button id="quit-menu">
+        X
+      </button>
+      <div id="translucent-black"></div>
+      <div id="post-it-edit-menu">
+        <p>something failed</p>
+      </div>
+    </div>
+    <div id="toolbar">
+      <button id="create-post-it">
+        create post-it
+      </button>
+      <button id="edit-post-it">
+        edit post-it
+      </button>
+      <button id="draw">
+        draw
+      </button>
+      <form action="/clear/{{selected}}">
+        <button id="clear" type="submit">
+          clear
+        </button>
+      </form>
+    </div>
 
 
-  <div id="notepad_id">
-    {{selected}}
-  </div>
+    <div id="notepad_id">
+      {{selected}}
+    </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="../static/js/data.js"></script>
-  <script src="../static/js/canvas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../static/js/data.js"></script>
+    <script src="../static/js/canvas.js"></script>
 </body>
 
 </html>

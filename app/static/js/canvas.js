@@ -157,12 +157,12 @@ var draw_mode = function(e) {
   mode = "draw";
 }
 
-var clear = function(e) {
-  ctx.fillStyle = "rgba(95,154,128,1)";
-  ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
-  ctx.fillStyle = "rgb(0,0,0)";
-	// deletes from database!!
-}
+// var clear = function(e) {
+//   ctx.fillStyle = "rgba(95,154,128,1)";
+//   ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
+//   ctx.fillStyle = "rgb(0,0,0)";
+// 	// deletes from database!!
+// }
 
 var mouse_down = function(e) {
   mouse_held_down = true;
@@ -220,5 +220,5 @@ canvas.addEventListener("mousemove", update_last_coords);
 create_postit_button.addEventListener("click", create_post_it_mode);
 edit_postit_button.addEventListener("click", edit_post_it_mode);
 draw_button.addEventListener("click", draw_mode);
-clear_button.addEventListener("click", clear);
+// clear_button.addEventListener("click", clear);
 quit_editing_menu_button.addEventListener("click", close_menu)
