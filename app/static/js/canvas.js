@@ -228,7 +228,7 @@ var add_delete_popup = function () {
       '<p class="card-text">Do you want to delete this notepad?</p>' +
       '<div class="d-flex justify-content-center">' +
       '<form action="/delete" method="POST">'+
-        '<input type="hidden" name="selected" value="{{selected}}">'+
+        '<input type="hidden" name="selected" value='+notepad_id+'>'+
         '<button type="submit" class="btn mr-3" value="submit"> Yes </button>'+
       '</form>'+
       '<button id = "close_delete_popup" class="btn"> No </button>'+
