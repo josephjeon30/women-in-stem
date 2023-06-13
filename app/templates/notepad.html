@@ -37,11 +37,8 @@
 
   <div class="body p-4">
     <p> {{name}} <button id="activate_change_name" type="submit" class="btn p-1" value="submit"> <img src="https://cdn-icons-png.flaticon.com/512/4147/4147040.png" style="width:15px"></button> </p>
-    <form action="/change_name/{{selected}}" method="POST">
-      <div class="form-group d-flex justify-content-center">
-        <input type="text" class="form-control" name="change_name" placeholder="Enter name" style="width:30rem">
-        <button type="submit" class="btn" value="submit"> Submit </button>
-      </div>
+    <form action="/change_name/{{selected}}" method="POST" id='change_name_area'>
+      <!-- JS places thing here -->
     </form>
 
     <form action="/delete" method="POST">

@@ -202,6 +202,17 @@ var update_last_coords = function(e) {
   }
 }
 
+var add_change_name_area = function() {
+  let area = document.getElementById('change_name_area');
+  area.innerHTML = '<div class="form-group d-flex justify-content-center">' +
+    '<input type="text" class="form-control" name="change_name" placeholder="Enter name" style="width:30rem">' +
+    '<button type="submit" class="btn" value="submit"> Submit </button>' +
+    '</div>';
+}
+
+let change_name_area_activator = document.getElementById("activate_change_name");
+change_name_area_activator.addEventListener("click", add_change_name_area);
+
 canvas.addEventListener("click", clicked);
 canvas.addEventListener("mousedown", mouse_down);
 canvas.addEventListener("mouseup", mouse_up);
