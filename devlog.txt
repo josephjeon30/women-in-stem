@@ -113,3 +113,10 @@ henryB (e) -- 2023-06-12 22:51
 - actual clear function (april's didn't work at all)
 - fixed drawing error
 ==============================================================
+
+henryB (e) -- 2023-06-12 23:29
+--------------------------------------------------------------
+- name change form has functionality (changes notepad name)
+- name change form only appears when edit button clicked
+- fixed bug where name of notepad could be deleted
+==============================================================
