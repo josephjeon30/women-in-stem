@@ -39,17 +39,15 @@
     <!-- Ignoring... -->
     <p> {{name}} </p>
     <button type="submit" class="btn" value="submit"> Change Name</button>
-
     <form action="/delete" method="POST">
       <input type="hidden" name="selected" value="{{selected}}">
       <button type="submit" class="btn" value="submit"> Delete </button>
     </form>
 
-  </div>
-  <div class="container-fluid no-padding">
-    <canvas id="notepad" height="10000%"> </canvas>
-  </div>
-  <div id = "edit-menu">
+        <div class="container-fluid no-padding">
+            <canvas id="notepad" height="10000%"> </canvas>
+        </div>
+        <div id = "edit-menu">
             <button id="quit-menu">
                 X
             </button>
@@ -58,20 +56,21 @@
                 <p>something failed</p>
             </div>
         </div>
-  <div id="toolbar">
-    <button id="create-post-it">
-      create post-it
-    </button>
-    <button id="edit-post-it">
-      edit post-it
-    </button>
-    <button id="draw">
-      draw
-    </button>
-    <button id="clear">
-      clear
-    </button>
-  </div>
+        <div id="toolbar">
+            <button id="create-post-it">
+                create post-it
+            </button>
+            <button id="edit-post-it">
+                edit post-it
+            </button>
+            <button id="draw">
+                draw
+            </button>
+            <button id="clear">
+                clear
+            </button>
+        </div>
+
 
   <div id="notepad_id">
     {{selected}}

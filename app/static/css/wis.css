@@ -18,8 +18,6 @@ body {
   border-radius: 10px;
 }
 
-
-
 #toolbar button{
 	color:gray;
 	border:0px;
@@ -57,12 +55,12 @@ body {
 	z-index:9;
 }
 
+
 #post-it-edit-menu h1 {
   font-size: 32px;
   text-align: center;
 }
 
-<<<<<<< HEAD
 #quit-menu{
 	position: fixed;
 	border:2px solid red;
@@ -92,8 +90,7 @@ body {
 	left:50%;
 	top:50%;
 	transform: translate(-50%, -50%);
-=======
+}
 .section {
   font-size: 32px;
->>>>>>> e733b3a8246ca6583ddb0618a0aca5a88d5cc07a
 }

@@ -18,6 +18,7 @@ var resize = () => {
   canvas.height = document.body.clientHeight;
   ctx.fillStyle = "rgba(95,154,128,1)";
   ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
+  process_data(notepad_id);
 }
 
 resize();
@@ -75,10 +76,6 @@ var edit_postit = (e) => {
 var open_menu = (index) => {
 	document.getElementById("edit-menu").style.display = "block";
 	document.getElementById("post-it-edit-menu").innerHTML = "<h1>"+items_placed[index][1].substring(0,135)+"</h1>";
-}
-
-var close_menu = () => {
-	document.getElementById("edit-menu").style.display = "none";
   let display_html = '<h1>' +
     '<form onsubmit="edit_postit_text(' + index + ')" method="POST">' +
     '<input id="new_text" type="text" value=' + items_placed[index][1].substring(0, 135) + ' maxlength=135>' +
@@ -96,7 +93,10 @@ function edit_postit_text(index) {
   // delete old postit there
   // create_postit_with_coords(new_text, x, y);
   send_data(notepad_id, 0, "postit", new_text, x, y);
+}
 
+var close_menu = () => {
+	document.getElementById("edit-menu").style.display = "none";
 }
 
 var place_text = function(text, x, y) {
