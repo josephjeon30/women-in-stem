@@ -106,7 +106,7 @@ def get_all_notepads():
     c.db.cursor()
     c.execute("select * from notepads")
     result = c.fetchall()
-    c.close
+    c.close()
     return result
 
 def delete_notepad(notepad_id):
@@ -114,7 +114,7 @@ def delete_notepad(notepad_id):
     c.execute("DELETE FROM notepads WHERE u_id = ?", (notepad_id,))
     c.execute("DROP TABLE if exists a" + notepad_id)
     db.commit()
-    c.close
+    c.close()
 
 def change_notepad_name(notepad_id, new_name):
     c = db.cursor()
