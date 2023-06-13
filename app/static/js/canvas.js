@@ -213,6 +213,35 @@ var add_change_name_area = function() {
 let change_name_area_activator = document.getElementById("activate_change_name");
 change_name_area_activator.addEventListener("click", add_change_name_area);
 
+var remove_delete_popup = function () {
+  let popup = document.getElementById('delete_popup');
+  popup.innerHTML = "";
+}
+
+var add_delete_popup = function () {
+  let popup = document.getElementById('delete_popup');
+  popup.innerHTML = '<div class="card" id="delete_popup" style="width:30rem">' +
+    '<div class="card-header">' +
+      'Delete Notepad' +
+    '</div>' +
+    '<div class="card-body">' +
+      '<p class="card-text">Do you want to delete this notepad?</p>' +
+      '<div class="d-flex justify-content-center">' +
+      '<form action="/delete" method="POST">'+
+        '<input type="hidden" name="selected" value="{{selected}}">'+
+        '<button type="submit" class="btn mr-3" value="submit"> Yes </button>'+
+      '</form>'+
+      '<button id = "close_delete_popup" class="btn"> No </button>'+
+    '</div>'+
+    '</div>'+
+  '</div>';
+  let close_button = document.getElementById('close_delete_popup');
+  close_button.addEventListener("click", remove_delete_popup);
+}
+
+let delete_button = document.getElementById("delete_button_popup");
+delete_button.addEventListener("click", add_delete_popup);
+
 canvas.addEventListener("click", clicked);
 canvas.addEventListener("mousedown", mouse_down);
 canvas.addEventListener("mouseup", mouse_up);

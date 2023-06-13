@@ -126,3 +126,8 @@ aprilL -- 2023-06-12 23:36
 -pop up delete core for the html is working
 -delete popup is a card
 ==============================================================
+
+henryB (e) -- 2023-06-12 23:52
+--------------------------------------------------------------
+- delete popup shows up and goes away when buttons pressed
+==============================================================
