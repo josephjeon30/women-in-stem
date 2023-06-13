@@ -89,3 +89,15 @@ henryB (e) -- 2023-06-11 14:11
   - we need to make the input box better
 - formatting + better prints
 ==============================================================
+
+henryB (e) -- 2023-06-12 9:05
+--------------------------------------------------------------
+- drawings are saved but with an error
+- discovered multiple bugs (edit screen no longer appears)
+==============================================================
+
+aprilL -- 2023-06-12 10:34
+--------------------------------------------------------------
+-clear function
+-homepage done
+==============================================================
