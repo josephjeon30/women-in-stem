@@ -101,3 +101,9 @@ aprilL -- 2023-06-12 10:34
 -clear function
 -homepage done
 ==============================================================
+
+aprilL -- 2023-06-12 22:50
+--------------------------------------------------------------
+-trying to get this change name to work 
+-error: not getting the proper notepad id or new name 
+==============================================================
