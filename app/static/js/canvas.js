@@ -176,7 +176,7 @@ var mouse_up = function(e) {
   mouse_held_down = false;
   if (mode == "draw") {
     items_placed.push(["stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]]);
-    console.log(items_placed[items_placed.length - 1])
+    // console.log(mouse_held_down)
     send_data(notepad_id, 0, "stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]);
   }
   draw_path = [];
@@ -204,7 +204,7 @@ var stringify_path = (path) => {
 
 var update_last_coords = function(e) {
   last_coords = get_mouse_pos(e);
-  if (mode == "draw") {
+  if (mode =='draw' && mouse_held_down) {
     draw_path.push(get_mouse_pos(e));
   }
 }
