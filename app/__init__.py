@@ -92,9 +92,9 @@ def delete():
 # remove later
 
 
-@app.route("/testing", methods=["GET", "POST"])
-def testing():
-    return render_template("notepad.html")
+# @app.route("/testing", methods=["GET", "POST"])
+# def testing():
+#     return render_template("notepad.html")
 
 
 @app.route("/process_sent_data", methods=["POST"])
@@ -113,6 +113,11 @@ def process_data():
 @app.route("/data_send/<notepad_id>", methods=['POST'])
 def data_send(notepad_id):
     return get_all_data(notepad_id)
+
+@app.route("/clear/<notepad_id>")
+def clear (notepad_id):
+    clear_data(notepad_id)
+    return redirect("/notepad?selected="+notepad_id)
 
 
 if __name__ == "__main__":
