@@ -118,9 +118,11 @@ def delete_notepad(notepad_id):
 
 def change_notepad_name(notepad_id, new_name):
     c = db.cursor()
-    c.execute("update notepads set name = ?", (new_name,))
+    c.execute("update notepads set name = ? WHERE u_id = ?", (new_name, notepad_id))
     db.commit()
     c.close()
+
+#change_notepad_name(1, "wow")
 
 def get_name(notepad_id):
     c = db.cursor()

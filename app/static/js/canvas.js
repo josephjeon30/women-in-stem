@@ -158,13 +158,6 @@ var draw_mode = function(e) {
   mode = "draw";
 }
 
-// var clear = function(e) {
-//   ctx.fillStyle = "rgba(95,154,128,1)";
-//   ctx.fillRect(0, 0, canvas.getBoundingClientRect().width, canvas.getBoundingClientRect().height);
-//   ctx.fillStyle = "rgb(0,0,0)";
-// 	// deletes from database!!
-// }
-
 var mouse_down = function(e) {
   mouse_held_down = true;
   if (mode == "draw") {
@@ -177,7 +170,6 @@ var mouse_up = function(e) {
   mouse_held_down = false;
   if (mode == "draw") {
     items_placed.push(["stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]]);
-    // console.log(mouse_held_down)
     send_data(notepad_id, 0, "stroke", stringify_path(draw_path), draw_path[0][0], draw_path[0][1]);
   }
   draw_path = [];
