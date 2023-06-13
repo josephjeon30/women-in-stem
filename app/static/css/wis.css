@@ -88,6 +88,14 @@ body {
 	color:white;
 }
 
+#new_text{
+	left:0;
+	margin-top:20px;
+	height:250px;
+	width:100%;
+	margin-bottom:20px;
+}
+
 #translucent-black{
 	position: fixed;
 	z-index:8;
