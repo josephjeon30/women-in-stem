@@ -122,12 +122,9 @@ def clear (notepad_id):
 @app.route("/change_name/<notepad_id>", methods=["POST"])
 def change_name(notepad_id):
     new_name = request.form.get("change_name")
-    print(new_name)
     if (new_name == None):
-        # old_name = get_name(selected_notepad)
         return redirect("/notepad?selected="+notepad_id)
     change_notepad_name(notepad_id, new_name)
-    print(get_name(notepad_id))
     return redirect("/notepad?selected="+notepad_id)
 
 if __name__ == "__main__":
